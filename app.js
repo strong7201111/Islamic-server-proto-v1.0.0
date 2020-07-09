@@ -50,6 +50,8 @@ intializePassport(
   }
 );
 
+console.log("hello world");
+
 app.use(websiteRoutes);
 app.use(authenticationRoutes);
 
