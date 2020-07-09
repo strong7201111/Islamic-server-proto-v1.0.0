@@ -1,0 +1,10 @@
+.iframe-container iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.min-height {
+  /* min-height: 550px; */
+  min-height: calc(100vw * 0.35);
+}

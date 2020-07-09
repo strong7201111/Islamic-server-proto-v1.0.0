@@ -1,0 +1,58 @@
+<%- include('partials/head.ejs') %>
+  <title>الدورات</title>
+</head>
+<%- include('partials/header.ejs', { logged: loggedIn, userr: user }) %>
+
+<div style="margin: 0 5%">
+  <h1 data-aos="fade-down" data-aos-duration="2000">الدورة</h1>
+  
+  <% if(loggedIn == true){ %>
+    <form action="/addcoursetouser/<%= lectures[0].course_id  %>" method="POST">
+      <input data-aos="fade-down" data-aos-duration="2000" class="btn btn-success" type="submit" value="أضف الدورة">
+    </form>
+  <% } %>
+  
+  
+
+  <% for(i = 0; i < lectures.length; i++) {%>
+    <% if(i != 0){%>
+      <% if(lectures[i].section_title == lectures[i-1].section_title) {%>
+        <a href="/video/<%= lectures[i].lecture_id%>">
+          <div data-aos="fade-down" data-aos-duration="2000" class="card" style="width: 18rem; margin: 1rem 1rem; background-color: #23282e;">
+            <img src="<%= lectures[i].lecture_thumbnail_link%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= lectures[i].lecture_title%></h5>
+            </div>
+          </div>
+        </a>
+      <% }else{ %>
+        </div>
+        <br>
+        <h2 data-aos="fade-down" data-aos-duration="2000" style="margin-right: 4%"><%= lectures[i].section_title %></h2>
+        <div class="row justify-content-start" style="margin-right: 1%">
+          <a href="/video/<%= lectures[i].lecture_id%>">
+            <div data-aos="fade-down" data-aos-duration="2000" class="card" style="width: 18rem; margin: 1rem 1rem; background-color: #23282e;">
+              <img src="<%= lectures[i].lecture_thumbnail_link%>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= lectures[i].lecture_title%></h5>
+              </div>
+            </div>
+          </a>
+      <% } %>
+    <% }else{ %>
+      <br>
+      <h2 data-aos="fade-down" data-aos-duration="2000" style="margin-right: 4%"><%= lectures[i].section_title %></h2>
+      <div class="row justify-content-start" style="margin-right: 1%">
+        <a href="/video/<%= lectures[i].lecture_id%>">
+          <div data-aos="fade-down" data-aos-duration="2000" class="card" style="width: 18rem; margin: 1rem 1rem; background-color: #23282e;">
+            <img src="<%= lectures[i].lecture_thumbnail_link%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= lectures[i].lecture_title%></h5>
+            </div>
+          </div>
+        </a>
+    <% } %>
+
+  <% } %>
+
+<%- include('partials/footer.ejs') %>

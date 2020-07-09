@@ -1,0 +1,15 @@
+<%- include('partials/head.ejs') %>
+  <title></title>
+</head>
+<%- include('partials/header.ejs', { logged: loggedIn, userr: user }) %>
+
+<div style="margin: 0 5%">
+  <h1><%= video.lecture_title %></h1>
+  <div class="row min-height">
+    <div class="iframe-container col-xl-12">
+      <iframe src="<%= video.lecture_video_youtube %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

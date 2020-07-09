@@ -1,0 +1,56 @@
+<%- include('partials/head.ejs') %>
+  <title>تسجيل حساب جديد</title>
+</head>
+<%- include('partials/header.ejs', { logged: loggedIn, userr: user }) %>
+
+<% if(error != null) {%>
+  <p style="margin-right: 7%;"><%= error %></p>
+<% } %>
+
+<div class="row" style="margin: 0 5%">
+  <form action="/register" method="POST" style="margin-right: 2rem;">
+    <div class="form-group">
+      <label for="exampleInputEmail1">الأسم الأول</label>
+      <input type="text" class="form-control" placeholder="الأسم الأول" name="first_name" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">الأسم الأخير</label>
+      <input type="text" class="form-control" placeholder="الأسم الأخير" name="last_name" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">البريد الإلكتروني</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="البريد الإلكتروني" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">كلمة السر</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة السر" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-success">تسجيل حساب جديد</button>
+  </form>
+</div>
+
+<%- include('partials/footer.ejs') %>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>Register</h1>
+
+  <form action="/register" method="POST">
+    <label for="first_name">first name: </label> <input type="text" name="first_name" required><br>
+    <label for="last_name">last name: </label> <input type="text" name="last_name" required><br>
+    <label for="email">email: </label> <input type="email" name="email" required><br>
+    <label for="password">password: </label> <input type="password" name="password" required><br>
+    <input type="submit" value="Register">
+  </form>
+
+</body>
+</html> -->

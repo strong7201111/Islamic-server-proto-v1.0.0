@@ -1,0 +1,34 @@
+body {
+  background: rgb(28, 30, 33);
+  background: linear-gradient(
+    0deg,
+    rgba(28, 30, 33, 1) 0%,
+    rgba(52, 58, 64, 1) 81%
+  );
+  background-attachment: fixed;
+  color: white;
+}
+
+hr {
+  border-color: #dae3ed;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+.iframe-container iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.min-height {
+  /* min-height: 550px; */
+  min-height: calc(100vw * 0.35);
+}
