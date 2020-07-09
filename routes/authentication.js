@@ -3,6 +3,7 @@ const router = express.Router();
 const database = require("./../database");
 const client = database.client;
 const passport = require("passport");
+const bcrypt = require("bcrypt");
 
 //profile page
 router.get("/profile", checkAuthenticated, async (req, res) => {

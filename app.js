@@ -4,7 +4,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const database = require("./database.js");
 const passport = require("passport");
-const bcrypt = require("bcrypt");
 const flash = require("express-flash");
 const session = require("express-session")({
   secret: process.env.SESSION_SECRET,
@@ -50,11 +49,14 @@ intializePassport(
   }
 );
 
-console.log("hello world");
-
 app.use(websiteRoutes);
 app.use(authenticationRoutes);
 
-var listener = app.listen(8080, function() {
+let port = process.env.PORT;
+if (port === null || port === "") {
+  port = 3000;
+}
+
+var listener = app.listen(port, function() {
   console.log("Listening on port " + listener.address().port);
 });
