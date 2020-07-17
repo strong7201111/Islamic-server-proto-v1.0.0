@@ -52,10 +52,7 @@ intializePassport(
 app.use(websiteRoutes);
 app.use(authenticationRoutes);
 
-let port = process.env.PORT;
-if (port === null || port === "") {
-  port = 8080;
-}
+let port = process.env.PORT || 8080;
 
 var listener = app.listen(port, function() {
   console.log("Listening on port " + port);
